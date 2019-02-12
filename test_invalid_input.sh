@@ -2,10 +2,6 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
 printf "$YELLOW<== invalid input ==>$NC\n\n"
-argc="./push_swap"
-printf "$argc\n"
-$argc
-printf "\n"
 
 argc="./push_swap w"
 printf "$argc\n"
@@ -54,15 +50,23 @@ printf "\n"
 
 printf "$YELLOW<== correct input ==>$NC\n\n"
 
+argc="./push_swap"
+printf "$argc\n"
+printf "Answer:\t\n"
+$argc
+printf "Expect:\t\n\n"
+
 argc="./push_swap 2147483647"
 printf "$argc\n"
+printf "Answer:\t\n"
 $argc
-printf "\n"
+printf "Expect:\t\n\n"
 
 argc="./push_swap -2147483648"
 printf "$argc\n"
+printf "Answer:\t\n"
 $argc
-printf "\n"
+printf "Expect:\t\n\n"
 
 argc="./push_swap +123 -456"
 printf "$argc\n"

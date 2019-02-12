@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/12 13:57:13 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:03:29 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ int			main(int argc, char **argv)
 {
 	t_stack	*stack;
 
+	if (argc == 1)
+		return (0);
 	if (check_input(argc, argv))
 		return (error_print());
+	if (argc == 2)
+		return (0);
 	stack = stack_ini(argc, argv);
 	if (stack == NULL)
 		return (error_print());

@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/12 13:56:36 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/12 16:19:04 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ typedef		struct s_solution
 
 void		ps_logic(t_stack *stack_a);
 int			check_input(int argc, char **argv);
+
+void		oper_swap(t_stack *top_elem);
+void		oper_push(t_stack **stack_a, t_stack **stack_b);
 
 #endif

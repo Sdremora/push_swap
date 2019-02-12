@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 10:42:24 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/12 12:10:13 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/12 15:57:07 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_solution	first_sort(t_stack stack_a)
 
 	solution.count = 2;
 	solution.log_str = "sa\npb\n";
-	stack_a.prev = NULL;
+	stack_a.prev = stack_a.prev;
 	return (solution);
 }
 
@@ -28,7 +28,7 @@ t_solution	second_sort(t_stack stack_a)
 
 	solution.count = 4;
 	solution.log_str = "sa\npb\npb\npb\n";
-	stack_a.prev = NULL;
+	stack_a.prev = stack_a.prev;
 	return (solution);
 }
 

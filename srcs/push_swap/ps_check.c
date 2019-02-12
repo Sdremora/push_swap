@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:55:53 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/12 14:01:12 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/12 17:05:50 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int			check_input(int argc, char **argv)
 {
 	int i;
 
-	if (argc < 2)
-		return (-1);
 	i = 1;
 	while (i < argc)
 	{
