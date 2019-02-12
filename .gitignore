@@ -4,3 +4,5 @@
 .vscode/
 *.dSYM/
 *.out
+checker
+push_swap
