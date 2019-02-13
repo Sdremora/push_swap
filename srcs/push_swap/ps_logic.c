@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 10:42:24 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 10:40:03 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:45:51 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ void	ps_logic(t_stack *stack_a, t_stack *stack_b)
 	// int min;
 
 	stack_b = stack_a;
+	t_elem	*elem;
+	elem = stack_a->head;
+	while (elem != NULL)
+	{
+		ft_printf("%d\n", elem->value);
+		elem = elem->prev;
+	}
 	// solution[0] = first_sort(*stack_a);
 	// solution[1] = second_sort(*stack_a);
 	// min = get_min_solution(solution);

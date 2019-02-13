@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:55:53 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 11:05:58 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 12:03:21 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	check_nondigit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == 0 && !(i == 0 && (str[i] == '-' || str[i] == '+')))
+		if (ft_isdigit(str[i]) == 0 && \
+				!(i == 0 && (str[i] == '-' || str[i] == '+')))
 			return (-1);
 		i++;
 	}
@@ -60,7 +61,6 @@ static int	check_duplicates(char *arg, t_stack *stack)
 
 int			check_input(char *arg, t_stack *stack)
 {
-
 	if (check_nondigit(arg) < 0)
 		return (-1);
 	if (check_overflow(arg) < 0)

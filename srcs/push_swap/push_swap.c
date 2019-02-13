@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 10:38:20 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:54:19 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int			main(int argc, char **argv)
 	if (read_input(&stack_a, argc, argv))
 		return (error_print());
 	ps_logic(&stack_a, &stack_b);
+	stack_clear(&stack_a);
+	stack_clear(&stack_b);
 	return (0);
 }
