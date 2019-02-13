@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 12:07:26 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 18:18:58 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef	struct	s_stack
 void			stack_ini(t_stack *stack);
 void			stack_clear(t_stack *stack);
 int				stack_put(t_stack *stack, int value);
+int				stack_copy(t_stack *copy, t_stack *srcs);
+int				*stack_to_array(const t_stack *stack);
 
 int				stack_push(t_stack *stack);
 #endif

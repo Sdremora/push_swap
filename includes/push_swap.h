@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 12:08:49 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 17:13:54 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,18 @@
 # include "ps_stack.h"
 # include "general.h"
 
-typedef	struct	s_solution
+typedef	struct	s_resolve
 {
 	int		count;
 	char	*log_str;
-}				t_solution;
+}				t_resolve;
 
-void			ps_logic(t_stack *stack_a, t_stack *stack_b);
+typedef t_resolve *(*funcs)(t_stack *stack_a, t_stack *stack_b, \
+							int *sort_array);
+
+t_resolve		*ps_sort(t_stack *stack_a, t_stack *stack_b);
+
+t_resolve		*my_sort(t_stack *stack_a, t_stack *stack_b, int *sort_array);
+t_resolve		*quick_sort(t_stack *stack_a, t_stack *stack_b, int *sort_array);
 
 #endif

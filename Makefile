@@ -30,7 +30,7 @@ test:
 	gcc -lft -L. test.c -o test.out $(addprefix -I,$(INCLUDES))
 
 add_flags:
-	$(eval FLAGS += $(DEBUG_FLAGS))
+	$(eval FLAGS = $(DEBUG_FLAGS))
 
 push_swap: libft/libft.a $(PUSH_SWAP_OBJ) $(GENERAL_OBJ)
 	gcc $(FLAGS) -lft -Llibft/ $(addprefix -I,$(INCLUDES)) $(PUSH_SWAP_OBJ) $(GENERAL_OBJ) -o $@
