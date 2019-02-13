@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   general.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 10:01:41 by sdremora         ###   ########.fr       */
+/*   Created: 2019/02/13 09:59:42 by sdremora          #+#    #+#             */
+/*   Updated: 2019/02/13 10:41:00 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# define SORT_COUNT 2
+#ifndef GENERAL_H
+# define GENERAL_H
 
 # include "libft.h"
 # include "ps_stack.h"
-# include "general.h"
 
-typedef		struct s_solution
-{
-	int		count;
-	char	*log_str;
-}			t_solution;
-
-void		ps_logic(t_stack *stack_a, t_stack *stack_b);
+int			check_input(char *arg, t_stack *stack_a);
+int			read_input(t_stack *stack_a, int argc, char **argv);
 
 #endif

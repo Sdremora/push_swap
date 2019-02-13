@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_check.c                                         :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:55:53 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/12 17:05:50 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:05:58 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,30 @@ static int	check_overflow(char *str)
 	return (-1);
 }
 
-int			check_input(int argc, char **argv)
+static int	check_duplicates(char *arg, t_stack *stack)
 {
-	int i;
+	int		value;
+	t_elem	*elem;
 
-	i = 1;
-	while (i < argc)
+	value = ft_atoi(arg);
+	elem = stack->head;
+	while (elem != NULL)
 	{
-		if (check_nondigit(argv[i]) < 0)
+		if (value == elem->value)
 			return (-1);
-		if (check_overflow(argv[i]) < 0)
-			return (-1);
-		i++;
+		elem = elem->prev;
 	}
+	return (0);
+}
+
+int			check_input(char *arg, t_stack *stack)
+{
+
+	if (check_nondigit(arg) < 0)
+		return (-1);
+	if (check_overflow(arg) < 0)
+		return (-1);
+	if (check_duplicates(arg, stack) < 0)
+		return (-1);
 	return (0);
 }

@@ -6,61 +6,48 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:45:19 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/12 12:47:26 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/13 11:09:41 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
-t_stack *new_stack_elem(int value)
+void	stack_ini(t_stack *stack)
 {
-	t_stack	*elem;
-
-	elem = (t_stack *)malloc(sizeof(t_stack));
-	if (elem == NULL)
-		return (NULL);
-	elem->value = value;
-	elem->prev = NULL;
-	return (elem);
+	stack->head = NULL;
+	stack->back = NULL;
+	stack->size = 0;
 }
 
-void	clear_stack(t_stack *stack)
+void	stack_clear(t_stack *stack)
 {
-	t_stack *cur_elem;
-	t_stack	*temp;
+	t_elem	*temp;
+	t_elem	*prev;
 
-	cur_elem = stack;
-	while (cur_elem != NULL)
+	temp = stack->head;
+	while (temp != NULL)
 	{
-		temp = cur_elem->prev;
-		free(cur_elem);
-		cur_elem = temp;
+		prev = temp->prev;
+		free(temp);
+		temp = prev;
 	}
+	stack->head = NULL;
+	stack->back = NULL;
+	stack->size = 0;
 }
 
-t_stack	*stack_ini(int argc, char **argv)
+int		stack_put(t_stack *stack, int value)
 {
-	int i;
-	t_stack	*top_elem;
-	t_stack	*cur_elem;
-	t_stack	*next_elem;
+	t_elem	*new_elem;
 
-	i = 1;
-	top_elem = new_stack_elem(ft_atoi(argv[i++]));
-	if (top_elem == NULL)
-		return (NULL);
-	next_elem = top_elem;
-	while (i < argc)
-	{
-		cur_elem = new_stack_elem(ft_atoi(argv[i]));
-		if (cur_elem == NULL)
-		{
-			clear_stack(top_elem);
-			return (NULL);
-		}
-		next_elem->prev = cur_elem;
-		cur_elem = next_elem;
-		i++;
-	}
-	return (top_elem);
+	new_elem = (t_elem *)malloc(sizeof(t_elem));
+	if (new_elem == NULL)
+		return (-1);
+	new_elem->prev = stack->head;
+	new_elem->value = value;
+	stack->head = new_elem;
+	if (stack->size == 0)
+		stack->back = new_elem;
+	(stack->size)++;
+	return (0);
 }
