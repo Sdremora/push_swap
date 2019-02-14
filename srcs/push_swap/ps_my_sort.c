@@ -6,32 +6,65 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 17:03:29 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 18:22:04 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_resolve	*my_sort(t_stack *stack_a, t_stack *stack_b, int *sort_array)
+/*
+**	0 	-> 	sorted
+**	-1	->	not sorted
+*/
+
+int			is_sort(t_stack	*stack, int *goal)
+{
+	int		i;
+	t_elem	*cur_elem;
+
+	cur_elem = stack->head;
+	i = 0;
+	while (cur_elem->prev != NULL)
+	{
+		if (cur_elem->value != goal[i])
+			return (-1);
+		cur_elem = cur_elem->prev;
+		i++;
+	}
+	return (0);
+}
+
+void		make_sort(t_stack *a, t_stack *b, int *goal, t_resolve *resolve)
+{
+	int	t1;
+	int t2;
+	int	i;
+	int len;
+
+	len = a->size;
+	i = 0;
+	while (i < len)
+	{
+
+		i++;
+	}
+}
+
+t_resolve	*my_sort(t_stack *stack_a, t_stack *stack_b, int *goal)
 {
 	t_resolve	*resolve;
+	int			i;
 
-	if (!stack_a || !stack_b || !sort_array)
+	if (!stack_a || !stack_b || !goal)
 		return (NULL);
 	resolve = (t_resolve *)ft_memalloc(sizeof(t_resolve));
 	if (resolve == NULL)
 		return (NULL);
-	ps_push(stack_b, stack_a, resolve);
-	ps_push(stack_b, stack_a, resolve);
-	ps_push(stack_b, stack_a, resolve);
-	ps_push(stack_a, stack_b, resolve);
-	ps_push(stack_a, stack_b, resolve);
-	ps_rotate(stack_a, resolve);
-	ps_rev_rotate(stack_a, resolve);
-	ps_swap(stack_a, resolve);
-	ps_dswap(stack_a, stack_b, resolve);
-	ps_drotate(stack_a, stack_b, resolve);
-	ps_drev_rotate(stack_a, stack_b, resolve);
-	resolve->count = 1;
+	i = 0;
+	while (is_sort(stack_a, goal))
+	{
+		make_sort(stack_a, stack_b, goal, resolve);
+
+	}
 	return (resolve);
 }

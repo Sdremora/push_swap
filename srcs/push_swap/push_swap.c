@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 15:27:57 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:13:26 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	error_print(void)
 static void	print_resolve(t_resolve *resolve)
 {
 	ft_printf("%s\n", resolve->log_str);
+	ft_printf("n = %d\n", resolve->count);
 }
 
 int			main(int argc, char **argv)
