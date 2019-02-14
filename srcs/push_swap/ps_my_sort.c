@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 18:27:59 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 10:38:07 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,7 @@ t_resolve	*my_sort(t_stack *stack_a, t_stack *stack_b, int *sort_array)
 	resolve = (t_resolve *)ft_memalloc(sizeof(t_resolve));
 	if (resolve == NULL)
 		return (NULL);
-	resolve->count = 20;
+	resolve->count = 19;
 	resolve->log_str = ft_strdup("my sort");
-
-	t_elem	*elem;
-	elem = stack_a->head;
-	ft_printf("in %s\n", resolve->log_str);
-	while (elem)
-	{
-		elem->value++;
-		ft_printf("%d\n", elem->value);
-		elem = elem->prev;
-	}
 	return (resolve);
 }

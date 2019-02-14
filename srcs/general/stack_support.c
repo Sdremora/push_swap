@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:45:19 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 18:19:00 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 10:09:41 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,10 @@ int		stack_copy(t_stack *copy, t_stack *srcs)
 		}
 		new_elem->value = cur_elem->value;
 		if (copy->head == NULL)
-		{
 			copy->head = new_elem;
-			prev_elem = new_elem;
-		}
 		else
-		{
 			prev_elem->prev = new_elem;
-			prev_elem = new_elem;
-		}
+		prev_elem = new_elem;
 		cur_elem = cur_elem->prev;
 	}
 	copy->back = new_elem;

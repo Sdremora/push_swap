@@ -6,34 +6,36 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 10:42:24 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 18:24:17 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 10:43:16 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int		get_min_solution(t_solution *solution)
-// {
-// 	int min;
-// 	int min_count;
-// 	int cur_count;
-// 	int i;
+static t_resolve	*get_min_resolve(t_resolve **resolve)
+{
+	int			i;
+	t_resolve	*min_resolve;
+	t_resolve	*temp;
 
-// 	min = 0;
-// 	min_count = (solution[min]).count;
-// 	i = 1;
-// 	while (i < SORT_COUNT)
-// 	{
-// 		cur_count = (solution[i]).count;
-// 		if (min_count > cur_count)
-// 		{
-// 			min = i;
-// 			min_count = cur_count;
-// 		}
-// 		i++;
-// 	}
-// 	return (min);
-// }
+	if (!resolve)
+		return (NULL);
+	min_resolve = resolve[0];
+	i = 1;
+	while (i < SORT_COUNT)
+	{
+		if (min_resolve->count > resolve[i]->count)
+		{
+			temp = resolve[i];
+			resolve[i] = min_resolve;
+			min_resolve = temp;
+		}
+		ft_free(2, &resolve[i]->log_str, &resolve[i]);
+		i++;
+	}
+	free(resolve);
+	return (min_resolve);
+}
 
 static t_resolve	**error_clear(t_resolve **resolve)
 {
@@ -42,7 +44,8 @@ static t_resolve	**error_clear(t_resolve **resolve)
 	i = 0;
 	while (i < SORT_COUNT)
 	{
-		ft_free(2, resolve[i]->log_str, resolve[i]);
+		if (resolve[i])
+			ft_free(2, resolve[i]->log_str, resolve[i]);
 		i++;
 	}
 	return (NULL);
@@ -53,12 +56,12 @@ static t_resolve	**sort_all(t_stack *stack_a, t_stack *stack_b, \
 {
 	t_resolve	**resolve;
 	t_stack		copy;
-	int 		i;
-	int 		is_error;
+	int			i;
+	int			is_error;
 
 	i = 0;
 	is_error = 0;
-	resolve = (t_resolve **)ft_memalloc( \
+	resolve = (t_resolve **)ft_memalloc(\
 					sizeof(t_resolve *) * SORT_COUNT);
 	if (resolve == NULL)
 		return (NULL);
@@ -89,6 +92,6 @@ t_resolve			*ps_sort(t_stack *stack_a, t_stack *stack_b)
 	sort_func[0] = my_sort;
 	sort_func[1] = quick_sort;
 	resolve = sort_all(stack_a, stack_b, sort_func, sort_array);
-
-	return (NULL);
+	free(sort_array);
+	return (get_min_resolve(resolve));
 }
