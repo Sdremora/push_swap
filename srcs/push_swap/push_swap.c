@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 10:43:42 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:27:57 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int			main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	stack_ini(&stack_a);
-	stack_ini(&stack_b);
+	stack_ini(&stack_a, "a");
+	stack_ini(&stack_b, "b");
 	if (read_input(&stack_a, argc, argv))
 		return (error_print());
 	resolve = ps_sort(&stack_a, &stack_b);

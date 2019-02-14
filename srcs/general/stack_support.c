@@ -6,17 +6,18 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:45:19 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 10:09:41 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/14 16:46:03 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
-void	stack_ini(t_stack *stack)
+void	stack_ini(t_stack *stack, char *name)
 {
 	stack->head = NULL;
 	stack->back = NULL;
 	stack->size = 0;
+	stack->name = name;
 }
 
 void	stack_clear(t_stack *stack)
@@ -60,7 +61,7 @@ int		stack_copy(t_stack *copy, t_stack *srcs)
 	t_elem	*new_elem;
 	t_elem	*prev_elem;
 
-	stack_ini(copy);
+	stack_ini(copy, srcs->name);
 	cur_elem = srcs->head;
 	while (cur_elem)
 	{
