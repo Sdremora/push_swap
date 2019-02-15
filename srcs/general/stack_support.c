@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:45:19 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 16:46:03 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:41:40 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		stack_put(t_stack *stack, int value)
 {
 	t_elem	*new_elem;
 
-	new_elem = (t_elem *)malloc(sizeof(t_elem));
+	new_elem = (t_elem *)ft_memalloc(sizeof(t_elem));
 	if (new_elem == NULL)
 		return (-1);
 	new_elem->prev = stack->head;

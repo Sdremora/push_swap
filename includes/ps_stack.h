@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 15:27:18 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 10:13:21 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct	s_elem
 {
 	int				value;
+	struct s_elem	*next;
 	struct s_elem	*prev;
 }				t_elem;
 
