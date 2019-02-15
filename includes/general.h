@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:59:42 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 10:49:23 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 12:05:50 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ int			read_input(t_stack *stack_a, int argc, char **argv);
 void		comb_sort(int *data, int size);
 void		memory_error(void);
 
+void		memory_error(void);
 #endif

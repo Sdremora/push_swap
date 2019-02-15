@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:46:05 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 12:03:53 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 12:09:42 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ int			read_input(t_stack *stack_a, int argc, char **argv)
 			arg = args[n - 1];
 			if (check_input(arg, stack_a))
 				return (clear_all(stack_a, args));
-			if (stack_put(stack_a, ft_atoi(arg)))
-				return (clear_all(stack_a, args));
+			stack_put(stack_a, ft_atoi(arg));
 			n--;
 		}
 		strar_clear(args);

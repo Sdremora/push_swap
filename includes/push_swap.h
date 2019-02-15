@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 17:16:24 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 12:37:30 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef	struct	s_resolve
 	size_t	log_max_len;
 }				t_resolve;
 
-typedef t_resolve *(*funcs)(t_stack *stack_a, t_stack *stack_b, \
+typedef t_resolve *(*t_funcs)(t_stack *stack_a, t_stack *stack_b, \
 							int *sort_array);
 
 t_resolve		*ps_sort(t_stack *stack_a, t_stack *stack_b);

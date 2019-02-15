@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/14 17:13:26 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 12:39:37 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int			main(int argc, char **argv)
 	if (read_input(&stack_a, argc, argv))
 		return (error_print());
 	resolve = ps_sort(&stack_a, &stack_b);
-	if (resolve == NULL)
-		return (error_print());
 	print_resolve(resolve);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);

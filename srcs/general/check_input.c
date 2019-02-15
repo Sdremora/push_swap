@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 13:55:53 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/13 12:03:21 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 12:14:58 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,18 @@ static int	check_overflow(char *str)
 static int	check_duplicates(char *arg, t_stack *stack)
 {
 	int		value;
+	int		i;
 	t_elem	*elem;
 
 	value = ft_atoi(arg);
 	elem = stack->head;
-	while (elem != NULL)
+	i = 0;
+	while (i < stack->size)
 	{
 		if (value == elem->value)
 			return (-1);
 		elem = elem->prev;
+		i++;
 	}
 	return (0);
 }
