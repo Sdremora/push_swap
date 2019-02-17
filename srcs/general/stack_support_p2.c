@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:45:19 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 12:33:04 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:56:26 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,28 @@ int		*stack_to_array(const t_stack *stack)
 		i++;
 	}
 	return (array);
+}
+
+/*
+**	0 	-> 	sorted
+**	-1	->	not sorted
+*/
+
+int		stack_is_sort(t_stack *stack)
+{
+	int		i;
+	t_elem	*cur_elem;
+	t_elem	*prev_elem;
+
+	cur_elem = stack->head;
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		prev_elem = cur_elem->prev;
+		if (cur_elem->value > prev_elem->value)
+			return (-1);
+		cur_elem = prev_elem;
+		i++;
+	}
+	return (0);
 }

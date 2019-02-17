@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 11:36:17 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 12:39:55 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 15:12:36 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_elem	*stack_pop_elem(t_stack *stack)
 		prev = elem->prev;
 		next->prev = prev;
 		prev->next = next;
+		stack->head = prev;
 	}
 	elem->next = NULL;
 	elem->prev = NULL;

@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 12:06:53 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 14:55:47 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void			stack_ini(t_stack *stack, char *name);
 void			stack_clear(t_stack *stack);
 void			stack_copy(t_stack *copy, t_stack *srcs);
 int				*stack_to_array(const t_stack *stack);
+int				stack_is_sort(t_stack	*stack);
 
 int				stack_push(t_stack *in, t_stack *out);
 int				stack_swap(t_stack *stack);

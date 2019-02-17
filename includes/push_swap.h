@@ -6,14 +6,14 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 12:37:30 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/15 16:56:44 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# define SORT_COUNT 2
+# define SORT_COUNT 3
 
 # include "libft.h"
 # include "ps_stack.h"
@@ -25,7 +25,18 @@ typedef	struct	s_resolve
 	char	*log_str;
 	size_t	log_len;
 	size_t	log_max_len;
+	char	index;
 }				t_resolve;
+
+typedef struct	s_sort_set
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		*goal;
+	int		*end;
+	char	*resolve;
+}				t_sort_set;
+
 
 typedef t_resolve *(*t_funcs)(t_stack *stack_a, t_stack *stack_b, \
 							int *sort_array);
@@ -33,6 +44,7 @@ typedef t_resolve *(*t_funcs)(t_stack *stack_a, t_stack *stack_b, \
 t_resolve		*ps_sort(t_stack *stack_a, t_stack *stack_b);
 int				ps_log(t_resolve *resolve, char *oper);
 
+t_resolve		*ps_buble_sort(t_stack *a, t_stack *b, int *goal);
 t_resolve		*my_sort(t_stack *stack_a, t_stack *stack_b, int *goal);
 t_resolve		*quick_sort(t_stack *stack_a, t_stack *stack_b, int *goal);
 
