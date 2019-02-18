@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 11:36:17 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 15:12:36 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 09:48:36 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,22 @@ int		stack_put(t_stack *stack, int value)
 		memory_error();
 	new_elem->value = value;
 	return (stack_put_elem(stack, new_elem));
+}
+
+int		stack_get_average(t_stack *stack)
+{
+	int			i;
+	long		average;
+	t_elem		*elem;
+
+	i = 0;
+	average = 0;
+	elem = stack->head;
+	while (i < stack->size)
+	{
+		average += elem->value;
+		elem = elem->prev;
+		i++;
+	}
+	return ((int)(average / i));
 }

@@ -6,134 +6,152 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/17 17:46:57 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 11:43:35 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-** return index in array or -1 if not exist
-*/
-
-static int			is_exist(int value, int *arr, int size)
+void		ps_sort_3elem(t_stack *a, t_resolve *res)
 {
-	int i;
 
-	i = 0;
-	while (i < size)
-	{
-		if (arr[i] == value)
-			return (i);
-		i++;
-	}
-	return (-1);
 }
 
-static int			devide_stack(t_stack *a, t_stack *b, t_resolve *res, t_goal goal)
+void		tricky_sort_3elem(t_stack *a, t_resolve *res)
 {
-	int		i;
-	int		rev_count;
-	t_elem	*cur_elem;
 
-	i = goal.len;
-	rev_count = 0;
-	while (i > 0)
-	{
-		cur_elem = a->head;
-		if (is_exist(cur_elem->value, goal.arr + goal.start, goal.len) >= 0)
-		{
-			ps_push(b, a, res);
-			i--;
-		}
-		else
-		{
-			ps_rotate(a, res);
-			rev_count++;
-		}
-	}
-	while (rev_count > 0)
-		ps_rev_rotate(a, res);
-	return (res->count);
 }
 
-static void		swap(t_stack *a, t_resolve *res)
+void		tricky_sort_b3elem(t_stack *a, t_stack *b, t_resolve *res)
+{
+	ps_push(a, b, res);
+	ps_push(a, b, res);
+	ps_push(a, b, res);
+}
+
+void		simple_sort_b(t_stack *a, t_stack *b, t_resolve *res)
+{
+	if (b->size == 1)
+		ps_push(a, b, res);
+	else if (b->size == 2)
+	{
+		if (b->head->value < b->head->prev->value)
+			ps_swap(b, res);
+		ps_push(a, b, res);
+		ps_push(a, b, res);
+	}
+	else if (b->size == 3)
+			tricky_sort_b3elem(a, b, res);
+}
+
+void		simple_sort_a(t_stack *a, t_resolve *res)
 {
 	if (a->size == 2)
 	{
 		if (a->head->value > a->head->prev->value)
 			ps_swap(a, res);
 	}
+	else if (a->size == 3)
+	{
+		if (a->grade == 0)
+			ps_sort_3elem(a, res);
+		else
+			tricky_sort_3elem(a, res);
+	}
 }
 
-static void		sort(t_stack *a, t_stack *b, t_goal goal, t_resolve *res)
+void		devide_b(t_stack *a, t_stack *b, t_resolve *res)
 {
-	int	size;
-	int	size_b;
-	int	dif;
+	int 	i;
+	int 	size;
+	int		average;
+	int		r_count;
 
-	size = a->size;
-	size_b = b->size;
-	if (goal.len <= 2)
-		swap(a, res);
-	else
+	average = stack_get_average(b);
+	i = 0;
+	size = b->size;
+	r_count = 0;
+	while (i < size) // нужно заранее определить сколько элементов нужно переместить и делать цикл по ним
 	{
-		goal.len = goal.len / 2;
-		devide_stack(a, b, res, goal);
-		goal.start = goal.len;
-		sort(a, b, goal, res);
-	}
-	dif = b->size - size_b;
-	if (dif <= 2 && dif != 0)
-	{
-		while (dif-- > 0)
+		if (b->head->value > average)
 			ps_push(a, b, res);
-		swap(a, res);
+		else
+		{
+			ps_rotate(b, res);
+			r_count++;
+		}
+		i++;
 	}
-	else
+	if (r_count > 0 && b->grade == -1)
 	{
-		goal.len = b->size;
-		goal.start = b->size;
-		while (b->size > 0)
-			ps_push(a, b, res);
-		sort(a, b, goal, res);
+		while (r_count-- > 0)
+			ps_rev_rotate(b, res);
 	}
-
-
-
-
 }
 
+void		devide_a(t_stack *a, t_stack *b, t_resolve *res)
+{
+	int 	i;
+	int		size;
+	int		average;
+	int		r_count;
 
-t_resolve	*quick_sort(t_stack *stack_a, t_stack *stack_b, int *sort_array)
+	average = stack_get_average(a); //если много больших чисел, то переполнение и беда
+	i = 0;
+	size = a->size;
+	r_count = 0;
+	while (i < size) // нужно заранее определить сколько элементов нужно переместить и делать цикл по ним
+	{
+		if (a->head->value <= average)
+			ps_push(b, a, res);
+		else
+		{
+			ps_rotate(a, res);
+			r_count++;
+		}
+		i++;
+	}
+	if (r_count > 0 && a->grade == -1)
+	{
+		while (r_count-- > 0)
+			ps_rev_rotate(a, res);
+	}
+}
+
+void		ilogic(t_stack *a, t_resolve *res)
+{
+	t_stack	b;
+	t_stack	tricky_a;
+
+	stack_ini(&b, "b");
+	if (a->size > 3)
+	{
+		devide_a(a, &b, res);
+		ilogic(a, res);
+	}
+	else
+		simple_sort_a(a, res);
+	while (b.size > 3)
+	{
+		stack_ini(&tricky_a, "a");
+		devide_b(&tricky_a, &b, res);
+		tricky_a.grade = -1;
+		ilogic(&tricky_a, res);
+		while (tricky_a.size > 0)
+			stack_push(a, &tricky_a);
+	}
+	simple_sort_b(a, &b, res);
+}
+
+t_resolve	*quick_sort(t_stack *a, t_stack *b, int *sort_array)
 {
 	t_resolve	*res;
 	int			size;
-	t_goal		goal;
 
 	res = resolve_ini('d');
-	if (!stack_is_sort(stack_a))
+	if (!stack_is_sort(a))
 		return (res);
-	goal.arr = sort_array;
-	goal.len = stack_a->size;
-	goal.start = 0;
-	sort(stack_a, stack_b, goal, res);
+	ilogic(a, res);
 	return (res);
 }
 
-
-
-// t_resolve	*quick_sort(t_stack *stack_a, t_stack *stack_b, int *sort_array)
-// {
-// 	t_resolve	*resolve;
-
-// 	if (!stack_a || !stack_b || !sort_array)
-// 		return (NULL);
-// 	resolve = (t_resolve *)ft_memalloc(sizeof(t_resolve));
-// 	if (resolve == NULL)
-// 		return (NULL);
-// 	resolve->index = '2';
-// 	resolve->count = 99999999;
-// 	resolve->log_str = ft_strdup("quick sort");
-// 	return (resolve);
-// }

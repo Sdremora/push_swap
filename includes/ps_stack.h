@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/17 12:57:47 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 09:52:53 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ typedef	struct	s_stack
 	t_elem	*head;
 	int		size;
 	char	*name;
+	int		grade;
 }				t_stack;
 
 t_elem			*stack_pop_elem(t_stack *stack);
 int				stack_put_elem(t_stack *stack, t_elem *new_elem);
 int				stack_put(t_stack *stack, int value);
+int				stack_get_average(t_stack *stack);
 
 void			stack_ini(t_stack *stack, char *name);
 void			stack_clear(t_stack *stack);

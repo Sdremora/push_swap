@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 12:45:19 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 14:56:26 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 09:53:14 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	stack_ini(t_stack *stack, char *name)
 	stack->head = NULL;
 	stack->size = 0;
 	stack->name = name;
+	stack->grade = 0;
 }
 
 void	stack_clear(t_stack *stack)

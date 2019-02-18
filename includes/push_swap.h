@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/17 17:36:43 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 09:43:41 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ typedef struct	s_sort_set
 	int		*end;
 	char	*resolve;
 }				t_sort_set;
-
-typedef struct	s_goal
-{
-	int	*arr;
-	int	start;
-	int	len;
-}				t_goal;
 
 typedef t_resolve *(*t_funcs)(t_stack *stack_a, t_stack *stack_b, \
 							int *sort_array);
