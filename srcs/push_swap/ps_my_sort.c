@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/15 16:50:01 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/17 15:59:45 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_resolve	*my_sort(t_stack *a, t_stack *b, int *goal)
 	res = (t_resolve *)ft_memalloc(sizeof(t_resolve));
 	if (res == NULL)
 		memory_error();
-	res->index = '1';
+	res->index = 'm';
 	i = 0;
 	while (stack_is_sort(a))
 	{
