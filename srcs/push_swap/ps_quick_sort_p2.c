@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:33:06 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 14:06:13 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 16:00:42 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void		simple_sort_b(t_stack *a, t_stack *b, t_resolve *res)
 		ps_push(a, b, res);
 	}
 	else if (b->size == 3)
-			tricky_sort_b3elem(a, b, res);
+		tricky_sort_b3elem(a, b, res);
 }
 
 void		simple_sort_a(t_stack *a, t_stack *b, t_resolve *res)

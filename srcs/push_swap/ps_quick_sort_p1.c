@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 13:55:12 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 16:26:36 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	devide_b(t_stack *a, t_stack *b, t_resolve *res)
 {
-	int 	i;
+	int		i;
 	int		average;
 	int		r_count;
 
@@ -42,7 +42,7 @@ static void	devide_b(t_stack *a, t_stack *b, t_resolve *res)
 
 static void	devide_a(t_stack *a, t_stack *b, t_resolve *res)
 {
-	int 	i;
+	int		i;
 	int		average;
 	int		r_count;
 
@@ -88,20 +88,27 @@ static void	ilogic(t_stack *a, t_resolve *res)
 		tricky_a.grade = -1;
 		ilogic(&tricky_a, res);
 		while (tricky_a.size > 0)
+		{
+			stack_rev_rotate(&tricky_a);
 			stack_push(a, &tricky_a);
+		}
 	}
 	simple_sort_b(a, &b, res);
 }
 
+/*
+**	b->grade = -2 and sort_array[0] = sort_array[0] for -Wextra -Werror
+*/
+
 t_resolve	*quick_sort(t_stack *a, t_stack *b, int *sort_array)
 {
 	t_resolve	*res;
-	int			size;
 
+	b->grade = -2;
+	sort_array[0] = sort_array[0];
 	res = resolve_ini('d');
 	if (!stack_is_sort(a))
 		return (res);
 	ilogic(a, res);
 	return (res);
 }
-

@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:36:09 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 14:37:11 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 15:59:13 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	found_maxmed(int *arr, int *max, int *med)
 	}
 }
 
-void		ps_sort_3elem(t_stack *a, t_resolve *res)
+void	ps_sort_3elem(t_stack *a, t_resolve *res)
 {
 	int	*arr;
 	int	max_i;
