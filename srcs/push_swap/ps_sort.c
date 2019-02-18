@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 10:42:24 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/17 16:29:14 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:26:21 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_resolve	*get_min_resolve(t_resolve **resolve)
 		return (NULL);
 	min_resolve = resolve[0];
 	i = 1;
-	while (i < SORT_COUNT)
+	while (resolve[i] != NULL)
 	{
 		if (min_resolve->count > resolve[i]->count)
 		{
@@ -46,33 +46,33 @@ static t_resolve	**sort_all(t_stack *stack_a, t_stack *stack_b, \
 
 	i = 0;
 	resolve = (t_resolve **)ft_memalloc(\
-					sizeof(t_resolve *) * SORT_COUNT);
+					sizeof(t_resolve *) * 3);
 	if (resolve == NULL)
 		memory_error();
-	while (i < SORT_COUNT)
+	while (sort_func[i] != NULL)
 	{
 		stack_copy(&copy, stack_a);
 		resolve[i] = sort_func[i](&copy, stack_b, sort_array);
 		stack_clear(&copy);
 		i++;
 	}
+	resolve[i] = NULL;
 	return (resolve);
 }
 
 t_resolve			*ps_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_resolve	**resolve;
-	t_funcs		sort_func[SORT_COUNT];
+	t_funcs		sort_func[3];
 	int			*sort_array;
 
 	sort_array = stack_to_array(stack_a);
 	if (sort_array == NULL)
 		memory_error();
 	comb_sort(sort_array, stack_a->size);
-	// sort_func[0] = ps_buble_sort;
-	// sort_func[1] = my_sort;
-	// sort_func[2] = my_devide_sort;
 	sort_func[0] = quick_sort;
+	sort_func[1] = (stack_a->size < 120) ? ps_buble_sort : NULL;
+	sort_func[2] = NULL;
 	resolve = sort_all(stack_a, stack_b, sort_func, sort_array);
 	free(sort_array);
 	return (get_min_resolve(resolve));

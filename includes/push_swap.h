@@ -6,14 +6,12 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 09:43:41 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 14:08:27 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# define SORT_COUNT 1
 
 # include "libft.h"
 # include "ps_stack.h"
@@ -37,6 +35,18 @@ typedef struct	s_sort_set
 	char	*resolve;
 }				t_sort_set;
 
+enum			e_oper
+{
+	SWAP_A='1',
+	SWAP_B,
+	PUSH_A,
+	PUSH_B,
+	ROTATE_A,
+	ROTATE_B,
+	R_ROTATE_A,
+	R_ROTATE_B,
+};
+
 typedef t_resolve *(*t_funcs)(t_stack *stack_a, t_stack *stack_b, \
 							int *sort_array);
 
@@ -44,9 +54,12 @@ t_resolve		*ps_sort(t_stack *stack_a, t_stack *stack_b);
 int				ps_log(t_resolve *resolve, char *oper);
 
 t_resolve		*ps_buble_sort(t_stack *a, t_stack *b, int *goal);
-t_resolve		*my_sort(t_stack *stack_a, t_stack *stack_b, int *goal);
 t_resolve		*quick_sort(t_stack *stack_a, t_stack *stack_b, int *goal);
-t_resolve		*my_devide_sort(t_stack *a, t_stack *b, int *goal);
+void			simple_sort_a(t_stack *a, t_stack *b, t_resolve *res);
+void			simple_sort_b(t_stack *a, t_stack *b, t_resolve *res);
+void			ps_sort_3elem(t_stack *a, t_resolve *res);
+void			found_maxmed(int *arr, int *max, int *med);
+void			ps_stack_combine(char *format, t_stack *a, t_stack *b, t_resolve *res);
 
 int				ps_push(t_stack *in, t_stack *out, t_resolve *resolve);
 int				ps_swap(t_stack *stack, t_resolve *resolve);

@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/17 09:47:05 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/18 13:26:26 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_resolve	*ps_buble_sort(t_stack *a, t_stack *b, int *goal)
 
 	res = resolve_ini('b');
 	i = 0;
+	if (a->size == 3)
+		ps_sort_3elem(a, res);
 	while (stack_is_sort(a))
 	{
 		direction = check_direction(a, goal[i]);
