@@ -6,11 +6,13 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 09:33:21 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 11:05:09 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:37:31 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
+# define CHECKER_H
+
 # include "libft.h"
 # include "ps_stack.h"
 # include "general.h"

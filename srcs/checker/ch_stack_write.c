@@ -6,12 +6,13 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 11:03:51 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 11:39:58 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:38:42 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-void	end_print()
+
+void	end_print(void)
 {
 	ft_printf("=====\t=====\n"
 			"  a  \t  b  \n"
@@ -29,6 +30,7 @@ void	stack_write(t_stack *a, t_stack *b, char *com)
 	elem_a = a->head;
 	elem_b = b->head;
 	ft_bzero(str, sizeof(char *) * 2);
+	ft_printf("     {yellow}%s{def}\n", com);
 	while (max_size > 0)
 	{
 		if (a->size >= max_size)

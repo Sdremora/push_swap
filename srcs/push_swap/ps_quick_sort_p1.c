@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 11:52:02 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:36:36 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	devide_b(t_stack *a, t_stack *b, t_resolve *res)
 	int		average;
 	int		r_count;
 
-	i = stack_get_average(b, &average) + 1;
+	i = stack_get_average(b, &average);
+	i = (b->size % 2 != 0) ? i + 1 : i;
 	r_count = 0;
 	while (i > 0)
 	{
@@ -68,16 +69,17 @@ static void	devide_a(t_stack *a, t_stack *b, t_resolve *res)
 	}
 }
 
-static void	ilogic(t_stack *a, t_resolve *res)
+static void	ilogic(t_stack *a, t_resolve *res, int rec_count)
 {
 	t_stack	b;
 	t_stack	tricky_a;
 
 	stack_ini(&b, "b");
+	b.grade = (rec_count == 1) ? 0 : -1;
 	if (a->size > 3)
 	{
 		devide_a(a, &b, res);
-		ilogic(a, res);
+		ilogic(a, res, rec_count + 1);
 	}
 	else
 		simple_sort_a(a, &b, res);
@@ -86,7 +88,7 @@ static void	ilogic(t_stack *a, t_resolve *res)
 		stack_ini(&tricky_a, "a");
 		devide_b(&tricky_a, &b, res);
 		tricky_a.grade = -1;
-		ilogic(&tricky_a, res);
+		ilogic(&tricky_a, res, rec_count + 1);
 		while (tricky_a.size > 0)
 		{
 			stack_rev_rotate(&tricky_a);
@@ -103,12 +105,14 @@ static void	ilogic(t_stack *a, t_resolve *res)
 t_resolve	*quick_sort(t_stack *a, t_stack *b, int *sort_array)
 {
 	t_resolve	*res;
+	int			rec_count;
 
 	b->grade = -2;
 	sort_array[0] = sort_array[0];
 	res = resolve_ini('d');
 	if (!stack_is_sort(a))
 		return (res);
-	ilogic(a, res);
+	rec_count = 1;
+	ilogic(a, res, rec_count);
 	return (res);
 }

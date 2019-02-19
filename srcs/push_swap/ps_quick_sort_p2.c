@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:33:06 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 16:00:42 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:07:22 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	tricky_sort_3elem(t_stack *a, t_stack *b, t_resolve *res)
 	else if (max_i == 0 && med_i == 2)
 		ps_stack_combine("1413", a, b, res);
 	else if (max_i == 1 && med_i == 0)
-		ps_stack_combine("4141", a, b, res);
+		ps_stack_combine("4131", a, b, res);
 	else if (max_i == 2 && med_i == 0)
 		ps_stack_combine("1", a, b, res);
 	else if (max_i == 1 && med_i == 2)
@@ -46,13 +46,24 @@ static void	tricky_sort_3elem(t_stack *a, t_stack *b, t_resolve *res)
 	free(arr);
 }
 
+/*
+**	'1'	->	swap_a
+**	'2'	->	swap_b
+**	'3'	->	push_a
+**	'4'	->	push_b
+**	'5'	->	rotate_a
+**	'6'	->	rotate_b
+**	'7'	->	rev_rotate_a
+**	'8'	->	rev_rotate_b
+*/
+
 static void	tricky_sort_b3elem(t_stack *a, t_stack *b, t_resolve *res)
 {
 	int	*arr;
 	int	max_i;
 	int	med_i;
 
-	arr = stack_to_array(a);
+	arr = stack_to_array(b);
 	if (arr == NULL)
 		memory_error();
 	found_maxmed(arr, &max_i, &med_i);
@@ -61,13 +72,13 @@ static void	tricky_sort_b3elem(t_stack *a, t_stack *b, t_resolve *res)
 	else if (max_i == 0 && med_i == 2)
 		ps_stack_combine("3233", a, b, res);
 	else if (max_i == 1 && med_i == 0)
-		ps_stack_combine("3313", a, b, res);
+		ps_stack_combine("2333", a, b, res);
 	else if (max_i == 2 && med_i == 0)
 		ps_stack_combine("32313", a, b, res);
 	else if (max_i == 1 && med_i == 2)
-		ps_stack_combine("23233", a, b, res);
+		ps_stack_combine("33131", a, b, res);
 	else if (max_i == 2 && med_i == 1)
-		ps_stack_combine("232313", a, b, res);
+		ps_stack_combine("323131", a, b, res);
 	free(arr);
 }
 

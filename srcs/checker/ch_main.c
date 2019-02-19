@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 11:00:16 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:38:25 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,3 @@ int			main(int argc, char **argv)
 	stack_clear(&stack_b);
 	return (0);
 }
-

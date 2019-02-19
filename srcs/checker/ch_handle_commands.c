@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 10:52:31 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 11:23:09 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:37:58 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	double_com(char com, t_stack *a, t_stack *b)
 		stack_swap(a);
 		stack_swap(b);
 	}
-		else if (com == 'r')
+	else if (com == 'r')
 	{
 		stack_rotate(a);
 		stack_rotate(b);
 	}
-		else if (com == 'w')
+	else if (com == 'w')
 	{
 		stack_rev_rotate(a);
 		stack_rev_rotate(b);
