@@ -1,0 +1,2 @@
+let a=$1/2
+ARG=`ruby -e "puts (-$a .. $a-1).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | ./checker $ARG

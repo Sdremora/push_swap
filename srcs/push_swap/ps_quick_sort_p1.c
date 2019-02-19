@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 16:52:14 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 16:26:36 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 11:52:02 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	devide_b(t_stack *a, t_stack *b, t_resolve *res)
 	int		average;
 	int		r_count;
 
-	i = stack_get_average(b, &average);
+	i = stack_get_average(b, &average) + 1;
 	r_count = 0;
 	while (i > 0)
 	{

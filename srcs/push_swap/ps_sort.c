@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 10:42:24 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 16:22:11 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 11:34:40 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_resolve			*ps_sort(t_stack *stack_a, t_stack *stack_b)
 		memory_error();
 	comb_sort(sort_array, stack_a->size);
 	sort_func[0] = quick_sort;
-	sort_func[1] = (stack_a->size < 120) ? ps_buble_sort : NULL;
+	sort_func[1] = (stack_a->size < 1) ? ps_buble_sort : NULL;
 	sort_func[2] = NULL;
 	resolve = sort_all(stack_a, stack_b, sort_func, sort_array);
 	free(sort_array);

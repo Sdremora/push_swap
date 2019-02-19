@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:53:36 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/18 16:31:54 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 10:29:12 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ typedef	struct	s_resolve
 	size_t	log_max_len;
 	char	index;
 }				t_resolve;
-
-typedef struct	s_sort_set
-{
-	t_stack	*a;
-	t_stack	*b;
-	int		*goal;
-	int		*end;
-	char	*resolve;
-}				t_sort_set;
 
 enum			e_oper
 {
