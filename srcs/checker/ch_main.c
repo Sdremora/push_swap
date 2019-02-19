@@ -6,14 +6,16 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:43:04 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 14:38:25 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:03:17 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int	error_print(void)
+static int	error_clear(t_stack *a, t_stack *b)
 {
+	stack_clear(a);
+	stack_clear(b);
 	ft_printf("Error\n");
 	return (-1);
 }
@@ -35,7 +37,6 @@ int			main(int argc, char **argv)
 	t_stack		stack_a;
 	t_stack		stack_b;
 	char		flags[2];
-	char		*com;
 
 	if (argc == 1)
 		return (0);
@@ -45,7 +46,7 @@ int			main(int argc, char **argv)
 	check_flags(flags, &argc, &argv);
 	if (read_input(&stack_a, argc, argv) ||
 		handle_commands(&stack_a, &stack_b, flags))
-		return (error_print());
+		return (error_clear(&stack_a, &stack_b));
 	if (!stack_is_sort(&stack_a) && stack_b.size == 0)
 		ft_printf("OK\n");
 	else

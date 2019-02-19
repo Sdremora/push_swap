@@ -46,8 +46,10 @@ libft/libft.a:
 
 clean:
 	/bin/rm -f $(CHECKER_OBJ) $(PUSH_SWAP_OBJ) $(GENERAL_OBJ)
+	$(MAKE) -C libft/ clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	$(MAKE) -C libft/ fclean
 
 re: fclean all

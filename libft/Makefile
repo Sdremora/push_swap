@@ -40,7 +40,7 @@ $(NAME): $(OBJ)
 	@echo "${GREEN}$(NAME) was created ${NC}"
 
 %.o: %.c
-	@gcc $(FLAGS) -c $(addprefix -I,$(INCLUDES)) $< -o $@
+	gcc $(FLAGS) -c $(addprefix -I,$(INCLUDES)) $< -o $@
 
 clean:
 	@/bin/rm -f $(OBJ)

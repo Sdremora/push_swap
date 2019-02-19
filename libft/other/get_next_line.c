@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 11:18:00 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/06 11:18:03 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:16:45 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,10 @@ static int	return_line(char ***f, int d, char **buf, char **l)
 			return (clear(f, buf));
 		ft_strdel(&((*f)[d]));
 		if (ft_strcmp(*l, "\0") == 0)
+		{
+			free(*l);
 			return (0);
+		}
 		return (1);
 	}
 	return (0);

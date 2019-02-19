@@ -6,7 +6,7 @@
 /*   By: sdremora <sdremora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/19 10:52:31 by sdremora          #+#    #+#             */
-/*   Updated: 2019/02/19 14:37:58 by sdremora         ###   ########.fr       */
+/*   Updated: 2019/02/19 16:17:03 by sdremora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,13 @@ int			handle_commands(t_stack *a, t_stack *b, char *flags)
 	while (get_next_line(0, &com))
 	{
 		if (check_and_make(com, a, b))
+		{
+			free(com);
 			return (-1);
+		}
 		if (flags[0] == 'v')
 			stack_write(a, b, com);
+		free(com);
 	}
 	return (0);
 }
